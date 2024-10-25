@@ -1,7 +1,12 @@
+import Task from './Task.jsx';
 import './TaskList.scss';
 
-function TaskList() {
-	return <ul>TaskList</ul>;
+export default function TaskList({ tasks }) {
+	return (
+		<ul>
+			{tasks.map((task) => (
+				<Task task={task} key={task.id} />
+			))}
+		</ul>
+	);
 }
-
-export default TaskList;
