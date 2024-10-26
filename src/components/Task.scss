@@ -47,10 +47,27 @@
 	margin-inline: var(--circle-radius);
 	content: '';
 	background-color: none;
-	// border-color: coral;
 	border-color: var(--circle-border-color);
 	border-style: solid;
-	border-width: calc(1rem / 16);
+	border-width: calc(2rem / 16);
 	// inline-size: 1rem;
 	// aspect-ratio: 1;
+}
+
+.task.completed {
+	text-decoration: line-through;
+	color: var(--text-crossed-color);
+}
+
+.task:hover::before {
+	// border-image: var(--circle-bg-gradient) 1;
+	border-color: var(--bright-blue);
+	cursor: pointer;
+}
+
+.task.completed::before {
+	// background-color: coral;
+	border-style: none;
+	background-image: var(--circle-bg-gradient);
+	content: url('../../public/images/icon-check.svg');
 }

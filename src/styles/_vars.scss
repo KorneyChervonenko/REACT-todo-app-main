@@ -6,7 +6,7 @@ $mobile-width: 23.44rem;
 // $desktop-height: 37.5rem;
 // $main-width-mobile: 20.5rem;
 $main-width-desktop: 33.75rem;
-$threshold-width: $main-width-desktop;
+$threshold-width: $main-width-desktop + 1rem;
 // @max-width-desktop: 90rem;
 
 :root {
@@ -14,8 +14,7 @@ $threshold-width: $main-width-desktop;
 	font-optical-sizing: auto;
 
 	--bright-blue: hsl(220, 98%, 61%);
-	--checked-bg-gradient: linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
-
+	--circle-bg-gradient: linear-gradient(to bottom right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
 	// Light Theme
 	--very-light-gray: hsl(0, 0%, 98%);
 	--very-light-grayish-blue: hsl(236, 33%, 92%);
@@ -33,6 +32,7 @@ $threshold-width: $main-width-desktop;
 	--very-dark-grayish-blue: hsl(237, 14%, 26%);
 
 	--circle-border-color: grey;
+	--text-crossed-color: grey;
 
 	--fs-150: 9.375rem; // 150px
 	--fs-100: 6.25rem; // 100px
