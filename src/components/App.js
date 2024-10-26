@@ -15,6 +15,7 @@ const tasksTitles = [
 ];
 
 const initTasks = tasksTitles.map((taskTitle) => ({ title: taskTitle, isCompleted: false, id: crypto.randomUUID() }));
+initTasks.at(2).isCompleted = true;
 
 console.log(initTasks);
 

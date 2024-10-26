@@ -1,3 +1,56 @@
 @import '../styles/_reset.scss';
 @import '../styles/_helpers.scss';
 @import '../styles/_vars.scss';
+
+.task {
+	// background-color: cadetblue;
+	outline-style: solid;
+	outline-width: 1px;
+
+	display: flex;
+	align-items: center;
+	// mobile
+	@media (width < $threshold-width) {
+		inline-size: var(--mobile-task-block-width);
+		block-size: var(--mobile-task-block-height);
+		font-size: var(--fs-12);
+
+		--circle-radius: var(--circle-radius-small);
+		--del-button-size: var(--del-small-button-size);
+	}
+
+	// desktop
+	@media (width >= $threshold-width) {
+		inline-size: var(--desktop-task-block-width);
+		block-size: var(--desktop-task-block-height);
+		font-size: var(--fs-18);
+
+		--circle-radius: var(--circle-radius-big);
+		--del-button-size: var(--del-big-button-size);
+	}
+
+	.del-button {
+		inline-size: var(--del-button-size);
+		margin-inline-start: auto;
+		margin-inline-end: var(--del-button-size);
+		aspect-ratio: 1;
+		border-style: none;
+		background-color: inherit;
+		background-image: url('../../public/images/icon-cross.svg');
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+}
+
+.task::before {
+	@include circle(var(--circle-radius));
+	margin-inline: var(--circle-radius);
+	content: '';
+	background-color: none;
+	// border-color: coral;
+	border-color: var(--circle-border-color);
+	border-style: solid;
+	border-width: calc(1rem / 16);
+	// inline-size: 1rem;
+	// aspect-ratio: 1;
+}
