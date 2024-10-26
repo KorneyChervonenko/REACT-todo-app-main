@@ -29,16 +29,17 @@
 		--del-button-size: var(--del-big-button-size);
 	}
 
-	.del-button {
-		inline-size: var(--del-button-size);
-		margin-inline-start: auto;
-		margin-inline-end: var(--del-button-size);
-		aspect-ratio: 1;
-		border-style: none;
-		background-color: inherit;
-		background-image: url('../../public/images/icon-cross.svg');
-		background-size: contain;
-		background-repeat: no-repeat;
+	> .del-button {
+		display: none;
+		// inline-size: var(--del-button-size);
+		// margin-inline-start: auto;
+		// margin-inline-end: var(--del-button-size);
+		// aspect-ratio: 1;
+		// border-style: none;
+		// background-color: inherit;
+		// background-image: url('../../public/images/icon-cross.svg');
+		// background-size: contain;
+		// background-repeat: no-repeat;
 	}
 }
 
@@ -57,6 +58,21 @@
 .task.completed {
 	text-decoration: line-through;
 	color: var(--text-crossed-color);
+}
+
+.task:hover {
+	> .del-button {
+		display: block;
+		inline-size: var(--del-button-size);
+		aspect-ratio: 1;
+		margin-inline-start: auto;
+		margin-inline-end: var(--del-button-size);
+		border-style: none;
+		background-color: inherit;
+		background-image: url('../../public/images/icon-cross.svg');
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
 }
 
 .task:hover::before {
