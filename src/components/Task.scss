@@ -4,8 +4,10 @@
 
 .task {
 	// background-color: cadetblue;
-	outline-style: solid;
-	outline-width: 1px;
+	// outline-style: solid;
+	// outline-width: 1px;
+	border-width: calc(1rem / 16);
+	border-block-end-style: solid;
 
 	display: flex;
 	align-items: center;
@@ -31,15 +33,6 @@
 
 	> .del-button {
 		display: none;
-		// inline-size: var(--del-button-size);
-		// margin-inline-start: auto;
-		// margin-inline-end: var(--del-button-size);
-		// aspect-ratio: 1;
-		// border-style: none;
-		// background-color: inherit;
-		// background-image: url('../../public/images/icon-cross.svg');
-		// background-size: contain;
-		// background-repeat: no-repeat;
 	}
 }
 

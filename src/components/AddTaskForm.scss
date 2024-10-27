@@ -1,3 +1,44 @@
 @import '../styles/_reset.scss';
 @import '../styles/_helpers.scss';
 @import '../styles/_vars.scss';
+
+.addTaskForm {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+
+	background-color: white;
+	border-radius: var(--block-radius);
+
+	// mobile
+	@media (width < $threshold-width) {
+		--circle-radius: var(--circle-radius-small);
+		block-size: var(--mobile-task-block-height);
+		inline-size: var(--mobile-task-block-width);
+	}
+
+	// desktop
+	@media (width >= $threshold-width) {
+		--circle-radius: var(--circle-radius-big);
+		block-size: var(--desktop-task-block-height);
+		inline-size: var(--desktop-task-block-width);
+	}
+
+	> .circle {
+		@include circle(var(--circle-radius));
+		margin-inline: var(--circle-radius);
+		content: '';
+		background-color: none;
+		border-color: var(--circle-border-color);
+		border-style: solid;
+		border-width: calc(2rem / 16);
+	}
+
+	> input {
+		flex-grow: 1;
+		// inline-size: 100%;
+		block-size: 100%;
+		border-style: none;
+		border-radius: inherit;
+	}
+}

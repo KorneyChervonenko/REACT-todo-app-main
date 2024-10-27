@@ -1,3 +1,9 @@
 @import '../styles/_reset.scss';
 @import '../styles/_helpers.scss';
 @import '../styles/_vars.scss';
+
+.task-list {
+	// border-radius: var(--block-radius);
+	background-color: white;
+	margin-block-start: 2rem;
+}

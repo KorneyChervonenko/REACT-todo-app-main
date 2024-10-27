@@ -3,7 +3,7 @@ import './TaskList.scss';
 
 export default function TaskList({ tasks }) {
 	return (
-		<ul>
+		<ul className="task-list">
 			{tasks.map((task) => (
 				<Task task={task} key={task.id} />
 			))}
