@@ -26,11 +26,17 @@ export default function App() {
 		setTasks((currentTasks) => currentTasks.filter((task) => task.id !== taskToDel.id));
 	}
 
+	function handleCompleteTask(taskToComplete) {
+		setTasks((currentTasks) =>
+			currentTasks.map((task) => (task.id === taskToComplete.id ? { ...task, isCompleted: !task.isCompleted } : task))
+		);
+	}
+
 	return (
 		<div className="App">
 			<Logo />
 			<AddTaskForm />
-			<TaskList tasks={tasks} onDelTask={handleDelTask} />
+			<TaskList tasks={tasks} onDelTask={handleDelTask} onCompleteTask={handleCompleteTask} />
 		</div>
 	);
 }
