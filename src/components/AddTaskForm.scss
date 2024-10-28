@@ -8,6 +8,7 @@
 	align-items: center;
 
 	background-color: white;
+	// background-color: coral;
 	border-radius: var(--block-radius);
 
 	// mobile
@@ -27,7 +28,6 @@
 	> .circle {
 		@include circle(var(--circle-radius));
 		margin-inline: var(--circle-radius);
-		content: '';
 		background-color: none;
 		border-color: var(--circle-border-color);
 		border-style: solid;

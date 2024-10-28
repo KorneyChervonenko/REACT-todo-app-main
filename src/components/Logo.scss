@@ -2,16 +2,32 @@
 @import '../styles/_helpers.scss';
 @import '../styles/_vars.scss';
 
-h1 {
+.header {
+	display: flex;
+	flex-direction: row;
+
+	align-items: center;
+	justify-content: space-between;
+
 	// mobile
 	@media (width < $threshold-width) {
 		inline-size: var(--mobile-task-block-width);
-		font-size: var(--fs-20);
 	}
 
 	// desktop
 	@media (width >= $threshold-width) {
 		inline-size: var(--desktop-task-block-width);
-		font-size: var(--fs-40);
+	}
+
+	h1 {
+		// mobile
+		@media (width < $threshold-width) {
+			font-size: var(--fs-20);
+		}
+
+		// desktop
+		@media (width >= $threshold-width) {
+			font-size: var(--fs-40);
+		}
 	}
 }
