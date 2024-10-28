@@ -5,7 +5,7 @@ function Logo() {
 		<header className="header">
 			<h1>TODO</h1>
 			<label className="checkbox">
-				<input className="checkbox-control" type="checkbox" />
+				<input className="checkbox-control" type="checkbox" id="theme-switch" />
 				<span className="checkbox-emulator"></span>
 			</label>
 		</header>
