@@ -13,6 +13,7 @@
 
 	// mobile
 	@media (width < $threshold-width) {
+		margin-block-start: 2.5rem;
 		--circle-radius: var(--circle-radius-small);
 		block-size: var(--mobile-task-block-height);
 		inline-size: var(--mobile-task-block-width);
@@ -20,6 +21,7 @@
 
 	// desktop
 	@media (width >= $threshold-width) {
+		margin-block-start: 3.5rem;
 		--circle-radius: var(--circle-radius-big);
 		block-size: var(--desktop-task-block-height);
 		inline-size: var(--desktop-task-block-width);

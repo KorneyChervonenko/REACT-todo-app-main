@@ -70,6 +70,18 @@ $threshold-width: $main-width-desktop + 1rem;
 	// --padding-tablet: 2.4rem;
 	// --padding-inline-desktop: 2.5rem;
 	// --padding-mobile: 1rem;
+
+	// Dark Theme
+	--app-bg-color: #181824;
+	--desktop-bg-image: url('../../public/images/bg-desktop-dark.jpg');
+	--mobile-bg-image: url('../../public/images/bg-mobile-dark.jpg');
+}
+
+// Light Theme
+:root:has(#theme-switch:checked) {
+	--app-bg-color: #fafafa;
+	--desktop-bg-image: url('../../public/images/bg-desktop-light.jpg');
+	--mobile-bg-image: url('../../public/images/bg-mobile-light.jpg');
 }
 
 // button:where(:hover, :focus) {

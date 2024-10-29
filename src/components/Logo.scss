@@ -5,21 +5,24 @@
 .header {
 	display: flex;
 	flex-direction: row;
-
 	align-items: center;
 	justify-content: space-between;
 
 	// mobile
 	@media (width < $threshold-width) {
 		inline-size: var(--mobile-task-block-width);
+		margin-block-start: 3rem;
 	}
 
 	// desktop
 	@media (width >= $threshold-width) {
 		inline-size: var(--desktop-task-block-width);
+		margin-block-start: 4.4rem;
 	}
 
 	> h1 {
+		color: white;
+
 		// mobile
 		@media (width < $threshold-width) {
 			font-size: var(--fs-20);
@@ -38,6 +41,9 @@
 
 		> .checkbox-emulator {
 			background-image: url('../../public/images/icon-moon.svg');
+			background-repeat: no-repeat;
+			background-size: contain;
+
 			display: flex;
 
 			aspect-ratio: 1;
@@ -60,6 +66,6 @@
 	}
 }
 
-.header:has(#theme-switch:checked) {
-	background-color: coral;
-}
+// .header:has(#theme-switch:checked) {
+// 	background-color: coral;
+// }
