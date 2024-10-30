@@ -7,7 +7,7 @@ export default function Task({ task, onDelTask, onCompleteTask }) {
 				<input className="checkbox-control" type="checkbox" onChange={() => onCompleteTask(task)} />
 				<span className="checkbox-emulator"></span>
 			</label>
-			{task.title}
+			<span className="task-title">{task.title}</span>
 			<button
 				className="del-button"
 				type="button"

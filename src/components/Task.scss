@@ -54,6 +54,22 @@
 		}
 	}
 
+	> .task-title {
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
+
+		// mobile
+		@media (width < $threshold-width) {
+			max-inline-size: 14rem;
+		}
+
+		// desktop
+		@media (width >= $threshold-width) {
+			max-inline-size: 25rem;
+		}
+	}
+
 	> .del-button {
 		display: none;
 	}
