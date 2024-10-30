@@ -40,7 +40,7 @@
 		}
 
 		> .checkbox-emulator {
-			background-image: url('../../public/images/icon-moon.svg');
+			background-image: url('../../public/images/icon-sun.svg');
 			background-repeat: no-repeat;
 			background-size: contain;
 
@@ -60,7 +60,7 @@
 
 		> .checkbox-control:checked {
 			+ .checkbox-emulator {
-				background-image: url('../../public/images/icon-sun.svg');
+				background-image: url('../../public/images/icon-moon.svg');
 			}
 		}
 	}
