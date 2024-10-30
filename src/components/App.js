@@ -23,6 +23,10 @@ console.log(initTasks);
 export default function App() {
 	const [tasks, setTasks] = useState([...initTasks]);
 
+	function handleAddTask(taskToAdd) {
+		setTasks((currentTasks) => [...currentTasks, taskToAdd]);
+	}
+
 	function handleDelTask(taskToDel) {
 		setTasks((currentTasks) => currentTasks.filter((task) => task.id !== taskToDel.id));
 	}
@@ -36,7 +40,7 @@ export default function App() {
 	return (
 		<div className="App">
 			<Logo />
-			<AddTaskForm />
+			<AddTaskForm onAddTask={handleAddTask} />
 			<TaskList tasks={tasks} onDelTask={handleDelTask} onCompleteTask={handleCompleteTask} />
 		</div>
 	);
