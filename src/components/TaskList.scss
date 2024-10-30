@@ -10,4 +10,16 @@
 	inline-size: fit-content;
 
 	box-shadow: var(--block-shadow);
+	overflow-x: hidden;
+	overflow-y: auto;
+
+	// mobile
+	@media (width < $threshold-width) {
+		max-block-size: 288px;
+	}
+
+	// desktop
+	@media (width >= $threshold-width) {
+		max-block-size: 384px;
+	}
 }

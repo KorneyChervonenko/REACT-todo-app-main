@@ -79,7 +79,7 @@
 		inline-size: var(--del-button-size);
 		aspect-ratio: 1;
 		margin-inline-start: auto;
-		margin-inline-end: var(--del-button-size);
+		margin-inline-end: calc(2 * var(--del-button-size));
 		border-style: none;
 		background-color: inherit;
 		background-image: url('../../public/images/icon-cross.svg');

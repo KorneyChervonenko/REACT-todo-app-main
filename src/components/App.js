@@ -12,6 +12,7 @@ const tasksTitles = [
 	'Read for 1 hour',
 	'Pick up groceries',
 	'Complete Todo App on Frontend Mentor',
+	'Very very very very very very very very long string',
 ];
 
 const initTasks = tasksTitles.map((taskTitle) => ({ title: taskTitle, isCompleted: false, id: crypto.randomUUID() }));
