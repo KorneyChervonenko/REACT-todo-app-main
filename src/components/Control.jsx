@@ -1,11 +1,17 @@
 import './Control.scss';
 
-export default function Control({ tasks }) {
+export default function Control({ tasks, onClearCompleted }) {
+	console.log(tasks);
+
+	const itemsLeft = tasks.reduce((accum, task) => accum + (task.isCompleted ? 0 : 1), 0);
+
 	return (
 		<div className="control">
 			<div className="stats-and-clear">
-				<div className="stats">X items left</div>
-				<button type="reset">Clear Completed</button>
+				<div className="stats">{`${itemsLeft}`} items left</div>
+				<button className="clear-completed-button" onClick={onClearCompleted}>
+					Clear Completed
+				</button>
 			</div>
 
 			<div className="filter">

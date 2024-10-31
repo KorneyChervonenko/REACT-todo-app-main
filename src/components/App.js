@@ -33,6 +33,10 @@ export default function App() {
 		setTasks((currentTasks) => currentTasks.filter((task) => task.id !== taskToDel.id));
 	}
 
+	function handleClearCompleted() {
+		setTasks((currentTasks) => currentTasks.filter((task) => !task.isCompleted));
+	}
+
 	function handleCompleteTask(taskToComplete) {
 		setTasks((currentTasks) =>
 			currentTasks.map((task) => (task.id === taskToComplete.id ? { ...task, isCompleted: !task.isCompleted } : task))
@@ -44,7 +48,7 @@ export default function App() {
 			<Logo />
 			<AddTaskForm onAddTask={handleAddTask} />
 			<TaskList tasks={tasks} onDelTask={handleDelTask} onCompleteTask={handleCompleteTask} />
-			<Control tasks={tasks} />
+			<Control tasks={tasks} onClearCompleted={handleClearCompleted} />
 		</div>
 	);
 }
