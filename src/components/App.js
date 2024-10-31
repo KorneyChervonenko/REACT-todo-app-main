@@ -2,6 +2,8 @@ import { useState } from 'react';
 import Logo from './Logo.jsx';
 import AddTaskForm from './AddTaskForm.jsx';
 import TaskList from './TaskList.jsx';
+import Control from './Control.jsx';
+
 import './App.scss';
 
 console.clear();
@@ -42,6 +44,7 @@ export default function App() {
 			<Logo />
 			<AddTaskForm onAddTask={handleAddTask} />
 			<TaskList tasks={tasks} onDelTask={handleDelTask} onCompleteTask={handleCompleteTask} />
+			<Control tasks={tasks} />
 		</div>
 	);
 }
