@@ -24,6 +24,7 @@ console.log(initTasks);
 
 export default function App() {
 	const [tasks, setTasks] = useState([...initTasks]);
+	const [filterType, setFilterType] = useState('all');
 
 	function handleAddTask(taskToAdd) {
 		setTasks((currentTasks) => [...currentTasks, taskToAdd]);
@@ -47,8 +48,13 @@ export default function App() {
 		<div className="App">
 			<Logo />
 			<AddTaskForm onAddTask={handleAddTask} />
-			<TaskList tasks={tasks} onDelTask={handleDelTask} onCompleteTask={handleCompleteTask} />
-			<Control tasks={tasks} onClearCompleted={handleClearCompleted} />
+			<TaskList tasks={tasks} onDelTask={handleDelTask} onCompleteTask={handleCompleteTask} filterType={filterType} />
+			<Control
+				tasks={tasks}
+				onClearCompleted={handleClearCompleted}
+				filterType={filterType}
+				setFilterType={setFilterType}
+			/>
 		</div>
 	);
 }

@@ -1,9 +1,16 @@
+// import { useState } from 'react';
+
 import './Control.scss';
 
-export default function Control({ tasks, onClearCompleted }) {
-	console.log(tasks);
-
+export default function Control({ tasks, onClearCompleted, filterType, setFilterType }) {
 	const itemsLeft = tasks.reduce((accum, task) => accum + (task.isCompleted ? 0 : 1), 0);
+	// const [filterType, setFilterType] = useState('all');
+
+	function handleTypeChange(event) {
+		// event.preventDefault();
+		setFilterType(event.target.value);
+		// console.log(event.target.value);
+	}
 
 	return (
 		<div className="control">
@@ -16,15 +23,28 @@ export default function Control({ tasks, onClearCompleted }) {
 
 			<div className="filter">
 				<label>
-					<input type="radio" name="filter" />
+					{/* <input type="radio" name="filter" value="all" checked={filterType === 'all'} onChange={handleTypeChange} /> */}
+					<input type="radio" name="filter" value="all" checked={filterType === 'all'} onChange={handleTypeChange} />
 					All
 				</label>
 				<label>
-					<input type="radio" name="filter" />
+					<input
+						type="radio"
+						name="filter"
+						value="active"
+						checked={filterType === 'active'}
+						onChange={handleTypeChange}
+					/>
 					Active
 				</label>
 				<label>
-					<input type="radio" name="filter" />
+					<input
+						type="radio"
+						name="filter"
+						value="completed"
+						checked={filterType === 'completed'}
+						onChange={handleTypeChange}
+					/>
 					Completed
 				</label>
 			</div>
