@@ -1,8 +1,15 @@
 import './Task.scss';
 
-export default function Task({ task, onDelTask, onCompleteTask }) {
+export default function Task({ task, onDelTask, onCompleteTask, index, dragStart, dragEnter, dragEnd }) {
 	return (
-		<li className={`task ${task.isCompleted ? 'completed' : ''}`}>
+		<li
+			index={index}
+			className={`task ${task.isCompleted ? 'completed' : ''}`}
+			draggable
+			onDragStart={() => dragStart(index)}
+			onDragEnter={() => dragEnter(index)}
+			onDragEnd={dragEnd}
+		>
 			<label className="checkbox">
 				<input className="checkbox-control" type="checkbox" onChange={() => onCompleteTask(task)} />
 				<span className="checkbox-emulator"></span>
