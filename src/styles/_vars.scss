@@ -35,6 +35,7 @@ $threshold-width: $main-width-desktop + 1rem;
 	--text-crossed-color: grey;
 	--block-border-color: grey;
 	--block-shadow: 0 1rem 1.5rem -0.5rem black;
+	--checked-filter-color: var(--bright-blue);
 
 	--fs-150: 9.375rem; // 150px
 	--fs-100: 6.25rem; // 100px
@@ -79,6 +80,7 @@ $threshold-width: $main-width-desktop + 1rem;
 	--mobile-bg-image: url('../../public/images/bg-mobile-dark.jpg');
 	--block-bg-color: #25273c;
 	--block-text-color: #d3d5ec;
+	--hovered-filter-color: white;
 }
 
 // Light Theme
@@ -88,6 +90,7 @@ $threshold-width: $main-width-desktop + 1rem;
 	--mobile-bg-image: url('../../public/images/bg-mobile-light.jpg');
 	--block-bg-color: white;
 	--block-text-color: #4b4956;
+	--hovered-filter-color: black;
 }
 
 // button:where(:hover, :focus) {
