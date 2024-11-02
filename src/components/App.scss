@@ -20,6 +20,7 @@
 		--bg-image: var(--desktop-bg-image);
 		// justify-content: center;
 	}
+
 	background-color: var(--app-bg-color);
 	background-image: var(--bg-image);
 	background-repeat: no-repeat;
@@ -28,4 +29,21 @@
 
 	// display: flex;
 	// flex-direction: column;
+	> .dnd-promo {
+		// background-color: coral;
+		color: var(--text-crossed-color);
+		font-size: var(--fs-14);
+
+		// mobile
+		@media (width < $threshold-width) {
+			margin-block-start: 2.4rem;
+			font-weight: 500;
+		}
+
+		// desktop
+		@media (width >= $threshold-width) {
+			margin-block-start: 3rem;
+			font-weight: bold;
+		}
+	}
 }

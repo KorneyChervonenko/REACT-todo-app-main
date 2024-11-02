@@ -61,6 +61,7 @@ export default function App() {
 				filterType={filterType}
 				setFilterType={setFilterType}
 			/>
+			<p className="dnd-promo">Drag and drop to reorder list</p>
 		</div>
 	);
 }
