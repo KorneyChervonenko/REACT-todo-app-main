@@ -1,15 +1,10 @@
-// import { useState } from 'react';
-
 import './Control.scss';
 
 export default function Control({ tasks, onClearCompleted, filterType, setFilterType }) {
 	const itemsLeft = tasks.reduce((accum, task) => accum + (task.isCompleted ? 0 : 1), 0);
-	// const [filterType, setFilterType] = useState('all');
 
 	function handleTypeChange(event) {
-		// event.preventDefault();
 		setFilterType(event.target.value);
-		// console.log(event.target.value);
 	}
 
 	return (
@@ -23,7 +18,6 @@ export default function Control({ tasks, onClearCompleted, filterType, setFilter
 
 			<div className="filter">
 				<label>
-					{/* <input type="radio" name="filter" value="all" checked={filterType === 'all'} onChange={handleTypeChange} /> */}
 					<input type="radio" name="filter" value="all" checked={filterType === 'all'} onChange={handleTypeChange} />
 					All
 				</label>
@@ -51,20 +45,3 @@ export default function Control({ tasks, onClearCompleted, filterType, setFilter
 		</div>
 	);
 }
-
-// function Demo() {
-//   const [gender, setGender] = useState("Male");
-
-//   function onChangeValue(event) {
-//     setGender(event.target.value);
-//     console.log(event.target.value);
-//   }
-
-//   return (
-//     <div onChange={onChangeValue}>
-//       <input type="radio" value="Male" name="gender" checked={gender === "Male"} /> Male
-//       <input type="radio" value="Female" name="gender" checked={gender === "Female"}/> Female
-//       <input type="radio" value="Other" name="gender" checked={gender === "Other"} /> Other
-//     </div>
-//   );
-// }

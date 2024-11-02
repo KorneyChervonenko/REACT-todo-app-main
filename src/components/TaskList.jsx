@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 
 import Task from './Task.jsx';
 import './TaskList.scss';
@@ -8,7 +8,6 @@ export default function TaskList({ tasks, onDelTask, onCompleteTask, filterType,
 	const [draggedEnterIndex, setDraggedEnterIndex] = useState(null);
 
 	function dragStart(index) {
-		// console.log('start');
 		setDraggedIndex(index);
 	}
 
@@ -18,8 +17,6 @@ export default function TaskList({ tasks, onDelTask, onCompleteTask, filterType,
 	}
 
 	function dragEnd() {
-		// console.log('drop');
-		// console.log(draggedIndex, draggedEnterIndex);
 		const draggedTask = tasks.at(draggedIndex);
 		const tasksExceptDragged = tasks.filter((task) => draggedTask.id !== task.id);
 		const newTasks = [
@@ -27,9 +24,7 @@ export default function TaskList({ tasks, onDelTask, onCompleteTask, filterType,
 			draggedTask,
 			...tasksExceptDragged.slice(draggedEnterIndex),
 		];
-		// console.log(newTasks);
 		setTasks(newTasks);
-
 		setDraggedIndex(null);
 		setDraggedEnterIndex(null);
 	}

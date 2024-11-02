@@ -3,7 +3,6 @@
 @import '../styles/_vars.scss';
 
 .control {
-	// background-color: coral;
 	color: var(--text-crossed-color);
 
 	// mobile
@@ -36,13 +35,11 @@
 	}
 
 	> .stats-and-clear {
-		// background-color: aqua;
 		background-color: var(--block-bg-color);
 
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-		// justify-content: space-around;
 		justify-content: space-between;
 		padding-inline: 1.5rem;
 
@@ -58,21 +55,20 @@
 		// desktop
 		@media (width >= $threshold-width) {
 			block-size: var(--desktop-task-block-height);
-			// inline-size: var(--desktop-task-block-width);
 
 			grid-row: 1 / 2;
 			grid-column: 1 / 4;
 		}
 
-		> .stats {
-			// mobile
-			@media (width < $threshold-width) {
-			}
+		// > .stats {
+		// 	// mobile
+		// 	@media (width < $threshold-width) {
+		// 	}
 
-			// desktop
-			@media (width >= $threshold-width) {
-			}
-		}
+		// 	// desktop
+		// 	@media (width >= $threshold-width) {
+		// 	}
+		// }
 
 		> .clear-completed-button {
 			background-color: inherit;
@@ -93,7 +89,6 @@
 	}
 
 	> .filter {
-		// background-color: bisque;
 		background-color: var(--block-bg-color);
 		block-size: 100%;
 
@@ -113,7 +108,6 @@
 
 		// desktop
 		@media (width >= $threshold-width) {
-			// block-size: var(--desktop-task-block-height);
 			grid-row: 1 / 2;
 			grid-column: 2 / 3;
 		}
@@ -129,7 +123,6 @@
 		}
 
 		> label:has(input[type='radio']:checked) {
-			// background-color: coral;
 			color: var(--checked-filter-color);
 			font-weight: 600;
 		}

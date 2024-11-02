@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import Logo from './Logo.jsx';
 import AddTaskForm from './AddTaskForm.jsx';
 import TaskList from './TaskList.jsx';
@@ -19,8 +19,6 @@ const tasksTitles = [
 
 const initTasks = tasksTitles.map((taskTitle) => ({ title: taskTitle, isCompleted: false, id: crypto.randomUUID() }));
 initTasks.at(2).isCompleted = true;
-
-// console.log(initTasks);
 
 export default function App() {
 	const [tasks, setTasks] = useState([...initTasks]);

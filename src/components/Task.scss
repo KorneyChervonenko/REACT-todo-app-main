@@ -3,9 +3,6 @@
 @import '../styles/_vars.scss';
 
 .task {
-	// background-color: cadetblue;
-	// outline-style: solid;
-	// outline-width: 1px;
 	border-color: var(--block-border-color);
 	border-width: calc(1rem / 16);
 	border-block-end-style: solid;
