@@ -43,8 +43,11 @@ function reducer(state, action) {
 					: task
 			);
 
+		case 'replace_tasks_list':
+			return action.payload.newTasks;
+
 		default:
-			break;
+			throw new Error('Unknown action type');
 	}
 }
 

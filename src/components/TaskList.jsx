@@ -25,6 +25,7 @@ export default function TaskList({ tasks, filterType, dispatch }) {
 			...tasksExceptDragged.slice(draggedEnterIndex),
 		];
 		// setTasks(newTasks);
+		dispatch({ type: 'replace_tasks_list', payload: { newTasks } });
 		setDraggedIndex(null);
 		setDraggedEnterIndex(null);
 	}
