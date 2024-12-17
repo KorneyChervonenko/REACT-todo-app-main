@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Task from './Task.jsx';
 import './TaskList.scss';
 
-export default function TaskList({ tasks, onDelTask, onCompleteTask, filterType, setTasks }) {
+export default function TaskList({ tasks, filterType, dispatch }) {
 	const [draggedIndex, setDraggedIndex] = useState(null);
 	const [draggedEnterIndex, setDraggedEnterIndex] = useState(null);
 
@@ -24,7 +24,7 @@ export default function TaskList({ tasks, onDelTask, onCompleteTask, filterType,
 			draggedTask,
 			...tasksExceptDragged.slice(draggedEnterIndex),
 		];
-		setTasks(newTasks);
+		// setTasks(newTasks);
 		setDraggedIndex(null);
 		setDraggedEnterIndex(null);
 	}
@@ -51,8 +51,7 @@ export default function TaskList({ tasks, onDelTask, onCompleteTask, filterType,
 			{filteredTasks.map((task, index) => (
 				<Task
 					task={task}
-					onDelTask={onDelTask}
-					onCompleteTask={onCompleteTask}
+					dispatch={dispatch}
 					key={task.id}
 					index={index}
 					dragStart={dragStart}
