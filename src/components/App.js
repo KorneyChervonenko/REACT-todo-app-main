@@ -46,6 +46,13 @@ function reducer(state, action) {
 		case 'replace_tasks_list':
 			return action.payload.newTasks;
 
+		case 'change_title':
+			return state.map((task) =>
+				task.id === action.payload.selectedTask.id
+					? { ...task, title: action.payload.newTitle }
+					: task
+			);
+
 		default:
 			throw new Error('Unknown action type');
 	}
