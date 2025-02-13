@@ -1,0 +1,4 @@
+styles convert to react modules
+remove index={index}. id?
+
+dragStart, dragEnter, dragEnd move to Task

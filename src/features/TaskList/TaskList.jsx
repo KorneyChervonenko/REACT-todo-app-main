@@ -1,9 +1,16 @@
 import { useState } from 'react';
 
-import Task from './Task.jsx';
+import Task from '../Task/Task.jsx';
 import './TaskList.scss';
 
-export default function TaskList({ tasks, filterType, dispatch }) {
+import { useDispatch, useSelector } from 'react-redux';
+import { reorderTaskList } from './taskListSlice.js';
+
+export default function TaskList() {
+	const dispatch = useDispatch();
+	const tasks = useSelector((store) => store.taskList.tasks);
+	const filterType = useSelector((store) => store.control.filterType);
+
 	const [draggedIndex, setDraggedIndex] = useState(null);
 	const [draggedEnterIndex, setDraggedEnterIndex] = useState(null);
 
@@ -25,7 +32,8 @@ export default function TaskList({ tasks, filterType, dispatch }) {
 			...tasksExceptDragged.slice(draggedEnterIndex),
 		];
 		// setTasks(newTasks);
-		dispatch({ type: 'replace_tasks_list', payload: { newTasks } });
+		// dispatch({ type: 'replace_tasks_list', payload: { newTasks } });
+		dispatch(reorderTaskList(newTasks));
 		setDraggedIndex(null);
 		setDraggedEnterIndex(null);
 	}
@@ -47,12 +55,15 @@ export default function TaskList({ tasks, filterType, dispatch }) {
 		default:
 			break;
 	}
+
+	// console.log(tasks);
+	// console.log('filtered:', filteredTasks);
+
 	return (
 		<ul className="task-list">
 			{filteredTasks.map((task, index) => (
 				<Task
 					task={task}
-					dispatch={dispatch}
 					key={task.id}
 					index={index}
 					dragStart={dragStart}

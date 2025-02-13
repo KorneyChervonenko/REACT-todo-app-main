@@ -1,10 +1,19 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { delCompletedTasks } from '../TaskList/taskListSlice';
+import { selectFilter } from './controlSlice.js';
+
 import './Control.scss';
 
-export default function Control({ tasks, dispatch, filterType, setFilterType }) {
+export default function Control() {
+	const dispatch = useDispatch();
+	const tasks = useSelector((store) => store.taskList.tasks);
+	const filterType = useSelector((store) => store.control.filterType);
+
 	const itemsLeft = tasks.reduce((accum, task) => accum + (task.isCompleted ? 0 : 1), 0);
 
 	function handleTypeChange(event) {
-		setFilterType(event.target.value);
+		// setFilterType(event.target.value);
+		selectFilter(event.target.value);
 	}
 
 	return (
@@ -14,7 +23,7 @@ export default function Control({ tasks, dispatch, filterType, setFilterType }) 
 				<button
 					className="clear-completed-button"
 					onClick={() => {
-						dispatch({ type: 'del_all_completed' });
+						dispatch(delCompletedTasks());
 					}}
 				>
 					Clear Completed

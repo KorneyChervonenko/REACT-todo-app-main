@@ -1,15 +1,22 @@
 import { useState } from 'react';
 import './AddTaskForm.scss';
 
-function AddTaskForm({ dispatch }) {
+import { useDispatch } from 'react-redux';
+// import { setTaskTitle } from './addTaskFormSlice';
+// import { addTask } from './taskListSlice.js';
+import { addTask } from '../TaskList/taskListSlice';
+
+function AddTaskForm() {
 	const [taskTitle, setTaskTitle] = useState('');
+	const dispatch = useDispatch();
 
 	function handleSubmit(event) {
 		event.preventDefault();
 		if (taskTitle.length === 0) return;
 		const newTask = { title: taskTitle, isCompleted: false, id: crypto.randomUUID() };
 		// onAddTask(newTask);
-		dispatch({ type: 'add_task', payload: { taskToAdd: newTask } });
+		// dispatch({ type: 'add_task', payload: { taskToAdd: newTask } });
+		dispatch(addTask(newTask));
 		setTaskTitle('');
 	}
 

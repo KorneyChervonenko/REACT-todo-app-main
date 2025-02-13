@@ -1,6 +1,6 @@
-@import '../styles/_reset.scss';
-@import '../styles/_helpers.scss';
-@import '../styles/_vars.scss';
+@import '../../styles/_reset.scss';
+@import '../../styles/_helpers.scss';
+@import '../../styles/_vars.scss';
 
 .task {
 	border-color: var(--block-border-color);
@@ -86,7 +86,8 @@
 	> .checkbox {
 		> .checkbox-emulator {
 			border-style: none;
-			background-image: url('../../public/images/icon-check.svg'), var(--circle-bg-gradient);
+			// background-image: url('../../public/images/icon-check.svg'), var(--circle-bg-gradient);
+			background-image: url('../../../public/images/icon-check.svg'), var(--circle-bg-gradient);
 			background-repeat: no-repeat;
 			background-position: center;
 		}
@@ -102,7 +103,7 @@
 		margin-inline-end: calc(2 * var(--del-button-size));
 		border-style: none;
 		background-color: inherit;
-		background-image: url('../../public/images/icon-cross.svg');
+		background-image: url('../../../public/images/icon-cross.svg');
 		background-size: contain;
 		background-repeat: no-repeat;
 	}

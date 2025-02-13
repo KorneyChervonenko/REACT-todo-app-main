@@ -1,3 +1,6 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleTaskStatus, changeTaskTitle, delTask } from '../TaskList/taskListSlice';
+
 import './Task.scss';
 
 export default function Task({
@@ -8,8 +11,9 @@ export default function Task({
 	dragStart,
 	dragEnter,
 	dragEnd,
-	dispatch,
 }) {
+	const dispatch = useDispatch();
+
 	return (
 		<li
 			index={index}
@@ -24,7 +28,8 @@ export default function Task({
 					className="checkbox-control"
 					type="checkbox"
 					// onChange={() => onCompleteTask(task)}
-					onChange={() => dispatch({ type: 'toggle_completed', payload: { selectedTask: task } })}
+					// onChange={() => dispatch({ type: 'toggle_completed', payload: { selectedTask: task } })}
+					onChange={() => dispatch(toggleTaskStatus(task))}
 					checked={task.isCompleted}
 				/>
 				<span className="checkbox-emulator"></span>
@@ -36,19 +41,14 @@ export default function Task({
 				className="task-title"
 				type="text"
 				value={task.title}
-				onChange={(e) =>
-					dispatch({
-						type: 'change_title',
-						payload: { selectedTask: task, newTitle: e.target.value },
-					})
-				}
+				onChange={(e) => dispatch(changeTaskTitle(task, e.target.value))}
 			/>
 
 			<button
 				className="del-button"
 				type="button"
-				// onClick={() => {onDelTask(task);}}
-				onClick={() => dispatch({ type: 'del_task', payload: { selectedTask: task } })}
+				onClick={() => dispatch(delTask(task))}
+				// onClick={() => dispatch({ type: 'del_task', payload: { selectedTask: task } })}
 			>
 				<span className="visually-hidden">delete task</span>
 			</button>
