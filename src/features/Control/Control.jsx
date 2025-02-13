@@ -13,7 +13,7 @@ export default function Control() {
 
 	function handleTypeChange(event) {
 		// setFilterType(event.target.value);
-		selectFilter(event.target.value);
+		dispatch(selectFilter(event.target.value));
 	}
 
 	return (
