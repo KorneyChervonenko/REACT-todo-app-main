@@ -41,7 +41,7 @@
 
 		> .checkbox-emulator {
 			// background-image: url('../../public/images/icon-sun.svg');
-			// background-image: url('./images/icon-sun.svg');
+
 			background-image: url('../../../public/images/icon-sun.svg');
 			background-repeat: no-repeat;
 			background-size: contain;
@@ -57,6 +57,11 @@
 			// desktop
 			@media (width >= $threshold-width) {
 				inline-size: 1.625rem;
+			}
+
+			&:hover {
+				// background-color: red;
+				cursor: pointer;
 			}
 		}
 
