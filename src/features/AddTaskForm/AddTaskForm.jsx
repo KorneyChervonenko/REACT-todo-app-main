@@ -10,8 +10,8 @@ function AddTaskForm() {
 	const [taskTitle, setTaskTitle] = useState('');
 	const dispatch = useDispatch();
 
-	function handleSubmit(event) {
-		event.preventDefault();
+	function handleSubmit(e) {
+		e.preventDefault();
 		if (taskTitle.length === 0) return;
 		const newTask = { title: taskTitle, isCompleted: false, id: crypto.randomUUID() };
 		// onAddTask(newTask);

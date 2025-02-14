@@ -18,11 +18,6 @@ const initTasks = tasksTitles.map((taskTitle) => ({
 
 initTasks.at(2).isCompleted = true;
 
-// const initTasks = [
-// 	{ title: 'Complete online JavaScript course', isCompleted: false, id: crypto.randomUUID() },
-// 	{ title: 'Jog around the park 3x', isCompleted: false, id: crypto.randomUUID() },
-// ];
-
 const initialState = {
 	tasks: initTasks,
 };
@@ -32,7 +27,7 @@ const taskListSlice = createSlice({
 	initialState,
 	reducers: {
 		addTask(state, action) {
-			state.tasks = state.tasks.push(action.payload);
+			state.tasks.push(action.payload);
 		},
 
 		delTask(state, action) {
@@ -43,7 +38,7 @@ const taskListSlice = createSlice({
 			state.tasks = state.tasks.filter((task) => !task.isCompleted);
 		},
 
-		reorderTaskList(state, action) {
+		updateTaskList(state, action) {
 			state.tasks = action.payload;
 		},
 
@@ -74,7 +69,7 @@ export const {
 	addTask,
 	delTask,
 	delCompletedTasks,
-	reorderTaskList,
+	updateTaskList,
 	toggleTaskStatus,
 	changeTaskTitle,
 } = taskListSlice.actions;
