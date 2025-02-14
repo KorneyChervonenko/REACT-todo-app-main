@@ -1,18 +1,42 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleTaskStatus, changeTaskTitle, delTask } from '../TaskList/taskListSlice';
 
+import { reorderTaskList } from '../TaskList/taskListSlice';
+
 import './Task.scss';
 
-export default function Task({
-	task,
-	// onDelTask,
-	// onCompleteTask,
-	index,
-	dragStart,
-	dragEnter,
-	dragEnd,
-}) {
+export default function Task({ task, index, draggedIndex, draggedEnterIndex }) {
 	const dispatch = useDispatch();
+
+	const tasks = useSelector((store) => store.taskList.tasks);
+
+	function dragStart(index) {
+		// setDraggedIndex(index);
+		draggedIndex.current = index;
+	}
+
+	function dragEnter(index) {
+		if (draggedIndex === index) return;
+		// setDraggedEnterIndex(index);
+		draggedEnterIndex.current = index;
+	}
+
+	function dragEnd() {
+		const draggedTask = tasks.at(draggedIndex.current);
+		const tasksExceptDragged = tasks.filter((task) => draggedTask.id !== task.id);
+		const newTasks = [
+			...tasksExceptDragged.slice(0, draggedEnterIndex.current),
+			draggedTask,
+			...tasksExceptDragged.slice(draggedEnterIndex.current),
+		];
+		// setTasks(newTasks);
+		// dispatch({ type: 'replace_tasks_list', payload: { newTasks } });
+		dispatch(reorderTaskList(newTasks));
+		draggedIndex.current = 0;
+		draggedEnterIndex.current = 0;
+		// setDraggedIndex(null);
+		// setDraggedEnterIndex(null);
+	}
 
 	return (
 		<li
