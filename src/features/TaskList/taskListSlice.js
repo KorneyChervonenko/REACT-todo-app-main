@@ -18,8 +18,11 @@ const initTasks = tasksTitles.map((taskTitle) => ({
 
 initTasks.at(2).isCompleted = true;
 
+const storedValue = localStorage.getItem('tasks');
+
 const initialState = {
-	tasks: initTasks,
+	// tasks: initTasks,
+	tasks: storedValue ? JSON.parse(storedValue) : initTasks,
 };
 
 const taskListSlice = createSlice({

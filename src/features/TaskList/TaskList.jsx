@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 
 import Task from '../Task/Task.jsx';
@@ -8,6 +8,10 @@ export default function TaskList() {
 	const tasks = useSelector((store) => store.taskList.tasks);
 	const filterType = useSelector((store) => store.control.filterType);
 	const draggedTaskRef = useRef(null);
+
+	useEffect(() => {
+		localStorage.setItem('tasks', JSON.stringify(tasks));
+	}, [tasks]);
 
 	let filteredTasks;
 	switch (filterType) {
